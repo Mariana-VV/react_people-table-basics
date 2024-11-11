@@ -24,7 +24,7 @@ export const PersonLink: React.FC<Props> = ({ people, peopleList }) => {
 
   const isFemale = (name: string) =>
     peopleList.map(person =>
-      person.name === name && person.sex === 'f' ? true : false,
+     {return person.name === name && person.sex === 'f' ? true : false}
     );
 
   const findPersonByParentName = (name: string | null) => {
@@ -81,7 +81,7 @@ export const PersonLink: React.FC<Props> = ({ people, peopleList }) => {
             to={`/people/${findPersonByParentName(people.fatherName)?.slug}`}
             onClick={() => {
               redirect(
-                `/people/${findPersonByParentName(people.motherName)?.slug}`,
+                `/people/${findPersonByParentName(people.fatherName)?.slug}`,
               );
             }}
           >
